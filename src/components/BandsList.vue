@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text" placeholder="Add Band..">
+    <input type="text" placeholder="Add Band..." @click.stop @keyup.enter="addBand" v-model="newBand"> 
     <button> Add </button>
 
     <ul>
@@ -30,7 +30,18 @@ export default {
         id: 2,
         name: 'ColdPlay',
         songs: ['Yellow', 'Fix you', 'Mylo xyloto']
-      }]
+      }],
+      newBand : ''
+    }
+  },
+  methods : {
+    addBand(){
+      debugger;
+      this.bands.push({
+        id:this.bands.length+1,
+        name:this.newBand,
+        songs:[]
+      });
     }
   }
 }
